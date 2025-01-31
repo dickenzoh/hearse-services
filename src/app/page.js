@@ -13,7 +13,6 @@ import { MdWhatsapp } from 'react-icons/md';
 import { LuPhone } from "react-icons/lu";
 import { MdOutlineMail } from "react-icons/md";
 import FAQ from './components/FAQ';
-import Testimonial from './components/Testimonials';
 import { useState } from 'react';
 
 // Import only the FloatingWhatsApp component dynamically
@@ -21,7 +20,6 @@ const FloatingWhatsApp = dynamic(
   () => import("react-floating-whatsapp").then((mod) => mod.FloatingWhatsApp),
   { ssr: false }
 );
-
 
 export default function Home() {
 
@@ -408,7 +406,7 @@ export default function Home() {
 
   {/* Copyright Section */}
   <div className="mt-8 text-center text-gray-500 text-sm">
-    &copy; {new Date().getFullYear()} Hearse Company. All Rights Reserved.
+    &copy; 2025 Hearse Company. All Rights Reserved.
   </div>
 </footer>
 
