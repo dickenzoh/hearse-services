@@ -13,7 +13,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center">
-            <Link href="/" scroll={false}>
+            <Link href="#hero" scroll={false}>
               <h1 className="text-2xl font-bold">Hearse Services</h1>
             </Link>
           </div>
@@ -63,16 +63,16 @@ const Navbar = () => {
           <div className="hidden md:flex md:space-x-6">
             
             <Link href="#hero" scroll={false}>
-              <h1 className="hover:text-blue-400">Home</h1>
+              <h1 className="hover:text-rose-600">Home</h1>
             </Link>
             <Link href="#about" scroll={false}>
-              <h1 className="hover:text-blue-400">About</h1>
+              <h1 className="hover:text-rose-600">About</h1>
             </Link>
             <Link href="#services" scroll={false}>
-              <h1 className="hover:text-blue-400">Services</h1>
+              <h1 className="hover:text-rose-600">Services</h1>
             </Link>
             <Link href="#contact" scroll={false}>
-              <h1 className="hover:text-blue-400">Contact</h1>
+              <h1 className="hover:text-rose-600">Contact</h1>
             </Link>
           </div>
         </div>
@@ -82,16 +82,16 @@ const Navbar = () => {
       {isOpen && (
         <div className="md:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            <Link href="/">
+            <Link href="#hero">
               <h1 className="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700">Home</h1>
             </Link>
-            <Link href="/about">
+            <Link href="#about">
               <h1 className="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700">About</h1>
             </Link>
-            <Link href="/services">
+            <Link href="#services">
               <h1 className="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700">Services</h1>
             </Link>
-            <Link href="/contact">
+            <Link href="#contact">
               <h1 className="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700">Contact</h1>
             </Link>
           </div>

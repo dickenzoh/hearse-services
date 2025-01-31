@@ -14,6 +14,7 @@ import { LuPhone } from "react-icons/lu";
 import { MdOutlineMail } from "react-icons/md";
 import FAQ from './components/FAQ';
 import Testimonial from './components/Testimonials';
+import { useState } from 'react';
 
 // Import only the FloatingWhatsApp component dynamically
 const FloatingWhatsApp = dynamic(
@@ -23,6 +24,9 @@ const FloatingWhatsApp = dynamic(
 
 
 export default function Home() {
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <div>
       <Topbar />
@@ -37,7 +41,7 @@ export default function Home() {
     minHeight: '90vh',
   }}
 >
-  <div className="container max-w-4xl mx-auto flex flex-col items-center md:items-start">
+  <div className="container mx-auto flex flex-col items-center md:items-center">
     {/* Heading */}
     <h1 className="text-2xl sm:text-4xl md:text-5xl font-bold text-rose-600 leading-tight">
       Dignified Farewells, Seamlessly Delivered
@@ -50,17 +54,56 @@ export default function Home() {
 
     {/* Buttons */}
     <div className="flex flex-col sm:flex-row gap-4 mt-6 w-full sm:w-auto">
-      <Link href="/booking">
-        <h1 className="cursor-pointer bg-rose-600 border-4 border-white hover:bg-rose-700 text-white px-5 py-3 md:px-8 md:py-4 rounded-lg text-sm md:text-lg font-medium hover:bg-blue-700 transition duration-300">
-          Book a Hearse Today
-        </h1>
-      </Link>
-      <Link href="/services">
+      <button
+            onClick={() => setIsModalOpen(true)}
+            className="bg-rose-600 border-4 border-white hover:bg-rose-700 text-white px-5 py-3 md:px-8 md:py-4 rounded-lg text-sm md:text-lg font-medium transition duration-300"
+          >
+            Book a Hearse Today
+          </button>
+      <Link href="#services">
         <h1 className="cursor-pointer bg-rose-600 border-4 border-white hover:bg-rose-700 text-white px-5 py-3 md:px-8 md:py-4 rounded-lg text-sm md:text-lg font-medium hover:bg-gray-300 transition duration-300">
           Learn More
         </h1>
       </Link>
     </div>
+    {/* Modal */}
+    {isModalOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white p-6 rounded-lg shadow-lg w-96">
+            <h2 className="text-xl font-bold text-gray-800">Book a Hearse</h2>
+            <p className="text-gray-600 mt-2">Fill in your details and we'll get back to you.</p>
+
+            <form className="mt-4">
+              <input
+                type="text"
+                placeholder="Your Name"
+                className="w-full p-2 border border-gray-300 rounded-md mb-3"
+              />
+              <input
+                type="text"
+                placeholder="Phone Number"
+                className="w-full p-2 border border-gray-300 rounded-md mb-3"
+              />
+              <div className='flex space-x-4'>
+              <button
+                type="submit"
+                className="bg-green-700 hover:border border-white-300 text-white px-4 py-2 rounded-md w-1/2"
+              >
+                Submit
+              </button>
+              <button
+              onClick={() => setIsModalOpen(false)}
+              className="bg-red-700 hover:border border-white-300 text-white px-4 py-2 rounded-md w-1/2"
+            >
+              Close
+            </button>
+              </div>
+            </form>
+
+            
+          </div>
+        </div>
+      )}
   </div>
 </section>
 
@@ -215,6 +258,10 @@ export default function Home() {
         <button
           type="submit"
           className="bg-rose-600 hover:bg-rose-700 text-white px-6 py-3 rounded-lg text-lg font-medium transition-transform transform hover:scale-105 shadow-lg"
+          onClick={(e) => {
+            e.preventDefault();
+            console.log("Message sent successfully!");
+          }}
         >
           Send Message
         </button>
@@ -330,7 +377,7 @@ export default function Home() {
     {/* 4️⃣ Social Media Links */}
     <div>
       <h4 className="text-lg font-semibold text-white">Follow Us</h4>
-      <ul className="mt-2 space-y-2 sm: flex flex-col items-center">
+      <ul className="mt-2 space-y-2 sm: flex flex-col items-center md:items-start">
         <li>
           <a href="https://x.com/DickensKinoti" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2">
             <TiSocialTwitterCircular className="text-3xl hover:text-blue-600 transition duration-300" />
