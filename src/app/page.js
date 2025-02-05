@@ -15,10 +15,10 @@ import { MdOutlineMail } from "react-icons/md";
 import FAQ from './components/FAQ';
 import { useState } from 'react';
 
-// Import only the FloatingWhatsApp component dynamically
-const FloatingWhatsApp = dynamic(() => import("react-floating-whatsapp"), {
-  ssr: false,
-});
+const FloatingWhatsApp = dynamic(
+  () => import("react-floating-whatsapp").then((mod) => mod.FloatingWhatsApp),
+  { ssr: false }
+);
 
 export default function Home() {
 
@@ -300,9 +300,9 @@ export default function Home() {
 {/* Footer Section */}
 <footer className="bg-gray-900 text-white py-10">
   {/* Floating WhatsApp Button */}
-  {/* <FloatingWhatsApp
+  <FloatingWhatsApp
     phoneNumber="+254722730560"
-    accountName="Hearse Services Kenya"
+    accountName="Support Team"
     avatar="/avatar.png"
     statusMessage="Typically replies within 5 mins"
     chatMessage="Hello! How can we assist you with hearse services today?"
@@ -322,7 +322,7 @@ export default function Home() {
       height: "60px",
       fontSize: "14px",
     }}
-  /> */}
+  />
 
   <div className="container mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-4 gap-8 text-center md:text-left">
     
